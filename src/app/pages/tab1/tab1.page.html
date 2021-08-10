@@ -1,0 +1,22 @@
+<app-header titulo="Receta"></app-header>
+
+<ion-content>
+  <div class="padding" *ngFor="let recipes of recipes">
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title color="primary">{{recipes.start_date}}</ion-card-title>
+          <ion-card-subtitle>Por favor siga esta receta al pie de la letra.</ion-card-subtitle>
+        </ion-card-header>
+      
+
+        
+        <ion-card-content>
+           <ion-button (click)="DownloadRecipe(recipes.uuid)"color="tertiary"><ion-icon name="cloud-download-outline"></ion-icon>
+           </ion-button>
+           <ion-button (click)="returnRecipe(recipes.uuid)"><ion-icon name="eye-outline"></ion-icon></ion-button>
+        </ion-card-content>
+      </ion-card>
+
+     
+  </div>
+</ion-content>

@@ -1,0 +1,19 @@
+[
+    {
+        "icon": "person",
+        "name": "Perfil Usuario",
+        "redirecTo": "/tabs/perfil"
+    },
+    {
+        "icon": "file-tray-stacked-sharp",
+        "name": "Historial médico",
+        "redirecTo": "/tabs/historial"
+    },
+
+    {
+        "icon": "calendar",
+        "name": "Proximas citas",
+        "redirecTo": "/tabs/citas"
+    }
+]
+

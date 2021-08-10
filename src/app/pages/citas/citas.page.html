@@ -1,0 +1,23 @@
+<app-header titulo="Citas"></app-header>
+<ion-content>
+  <ion-card color="primary" >
+   <ion-card>
+    <ion-card-header>
+      <ion-card-title>Proxima cita:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Consultori: 2
+      Fecha: 05/08/2021
+      Doctor: tinez
+     </ion-card-content>
+    <ion-segment (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="friends">
+        <ion-label>Friends</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="enemies">
+        <ion-label>Enemies</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    </ion-card>
+  </ion-card>
+</ion-content>
