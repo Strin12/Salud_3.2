@@ -1,16 +1,18 @@
 <ion-menu side="start" 
 menuId="Primer menu"
 contentId="principal">
-<ion-header>
-<ion-toolbar color="primary">
-<ion-title>Menu Principal</ion-title>
-</ion-toolbar>
-</ion-header>
 <ion-content>
-    
-<ion-list>
+   <div class="menu-header-bg"></div>
+   <div class="header-content">
+      <img src="../../../assets/images/default.png" alt="">
+      <ion-label>
+         <h2>Moises Martinez</h2>
+         <p>Paciente</p>
+      </ion-label>
+   </div> 
+<ion-list lines="none" class="menu-items">
    <ion-menu-toggle *ngFor="let c of componentes | async">
-<ion-item [routerLink]="c.redirecTo">
+<ion-item [routerLink]="c.redirecTo" class="active">
 <ion-icon slot="start" [name]="c.icon"></ion-icon>
 <ion-label > {{c.name}} </ion-label>  
 </ion-item>
