@@ -11,6 +11,7 @@ import { PresionComponent } from './presion/presion.component';
 import { OxigenacionComponent } from './oxigenacion/oxigenacion.component';
 import { DatosHistorialComponent } from './datos-historial/datos-historial.component';
 import { FormsModule } from '@angular/forms';
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 
 
@@ -42,6 +43,7 @@ import { FormsModule } from '@angular/forms';
     IonicModule,
     RouterModule,
     FormsModule,
+    AngularFileUploaderModule,
     ]
 })
 export class ComponentsModule { }

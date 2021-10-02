@@ -11,43 +11,98 @@
 <ion-content>
   <h1>Editar<br />perfil</h1>
 
-  <form id="form">
+  <form id="form" (ngSubmit)="guardar(form)" #form="ngForm">
     <div id="header">
-    <img src="{{ 'http://127.0.0.1:8000/pacientes/' + user.photo }}" />
+      <img src="{{ 'http://127.0.0.1:8000/pacientes/' + user.photo }}" />
+      <angular-file-uploader
+        [config]="afuConfig"
+        [resetUpload]="true"
+        (ApiResponse)="imagenupload($event)"
+      >
+      </angular-file-uploader>
     </div>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Nombre" [(ngModel)]="user.person" name="name"></ion-input>
+      <ion-input
+        placeholder="Nombre"
+        [(ngModel)]="user.name"
+        name="name"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Apellido paterno" [(ngModel)]="user.ap_patern" name="ap_patern"></ion-input>
+      <ion-input
+        placeholder="Apellido paterno"
+        [(ngModel)]="user.ap_patern"
+        name="ap_patern"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Apellido materno" [(ngModel)]="user.ap_matern" name="ap_matern"></ion-input>
+      <ion-input
+        placeholder="Apellido materno"
+        [(ngModel)]="user.ap_matern"
+        name="ap_matern"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Teléfono celular" [(ngModel)]="user.cell_phone" name="cell_phone"></ion-input>
+      <ion-input
+        placeholder="Teléfono celular"
+        [(ngModel)]="user.cell_phone"
+        name="cell_phone"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Teléfono" [(ngModel)]="user.telefone" name="telefone"></ion-input>
+      <ion-input
+        placeholder="Teléfono"
+        [(ngModel)]="user.telefone"
+        name="telefone"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Vivienda" [(ngModel)]="user.living_place" name="living_place"></ion-input>
+      <ion-input
+        placeholder="Vivienda"
+        [(ngModel)]="user.living_place"
+        name="living_place"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Tipo de sangre" [(ngModel)]="user.blood_type" name="blood_type"></ion-input>
+      <ion-input
+        placeholder="Tipo de sangre"
+        [(ngModel)]="user.blood_type"
+        name="blood_type"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Discapacidad" [(ngModel)]="user.disability" name="disability"></ion-input>
+      <ion-input
+        placeholder="Discapacidad"
+        [(ngModel)]="user.disability"
+        name="disability"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Religión" [(ngModel)]="user.religion" name="religion"></ion-input>
+      <ion-input
+        placeholder="Religión"
+        [(ngModel)]="user.religion"
+        name="religion"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="Nivel económico" [(ngModel)]="user.socioeconomic_level" name="socioeconomic_level"></ion-input>
+      <ion-input
+        placeholder="Nivel económico"
+        [(ngModel)]="user.socioeconomic_level"
+        name="socioeconomic_level"
+      ></ion-input>
     </ion-item>
     <ion-item class="ion-margin-bottom">
-      <ion-input placeholder="edad" [(ngModel)]="user.age" name="age"></ion-input>
+      <ion-input
+        placeholder="edad"
+        [(ngModel)]="user.age"
+        name="age"
+      ></ion-input>
     </ion-item>
-    <ion-button expand="block" shape="round">Guardar</ion-button>
+    <ion-item class="ion-margin-bottom">
+      <ion-select [(ngModel)]="user.hospitals_id" name="hospitals">
+        <ion-select-option *ngFor="let hospitals of hospitals" [value]="user.hospitals_id">{{hospitals.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="block" shape="round" type="submit">Guardar</ion-button>
   </form>
 </ion-content>

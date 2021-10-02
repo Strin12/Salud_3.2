@@ -16,6 +16,7 @@ import {
 } from 'angularx-social-login';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ComponentsModule,
     SocialLoginModule,
+    AngularFileUploaderModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
  
   ],

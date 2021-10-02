@@ -39,10 +39,7 @@ user: User = new User();
   }
   async EditPerfil(uuid: any){
     const modal = await this.modalCtrl.create({
-      component: ModalPerfilComponent,
-      componentProps: {
-        uuid
-      }
+      component: ModalPerfilComponent
     });
 
     modal.present();

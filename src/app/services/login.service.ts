@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { User } from '../pages/interfaces/user';
 const url = environment.url;
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  private url = 'http://127.0.0.1:8000/api/';
+   url = 'http://127.0.0.1:8000/api/';
   name: string = null;
   token: string = null;
   email: string = null;
@@ -23,7 +24,7 @@ export class LoginService {
     return this.http.get(`${url}patients/${uuid}?token=${this.leer_token()}`);
 
   }
-  Update( users: any){
+  Update( users: User){
     return this.http.put(`${url}patients/${users.uuid}?token=${this.leer_token()}`, users);
 
   }
