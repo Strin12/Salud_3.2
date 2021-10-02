@@ -10,6 +10,7 @@ import { DatosDomicilioComponent } from './datos-domicilio/datos-domicilio.compo
 import { PresionComponent } from './presion/presion.component';
 import { OxigenacionComponent } from './oxigenacion/oxigenacion.component';
 import { DatosHistorialComponent } from './datos-historial/datos-historial.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -39,7 +40,8 @@ import { DatosHistorialComponent } from './datos-historial/datos-historial.compo
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
     ]
 })
 export class ComponentsModule { }

@@ -8,7 +8,7 @@
     <ion-grid>
       <ion-row>
     <ion-col style="align-items: center">
-      <ion-button shape="round" *ngIf="!dato" (click)="EditPerfil()">Editar perfil</ion-button>
+      <ion-button shape="round" *ngIf="!dato" (click)="EditPerfil(user.uuid)">Editar perfil</ion-button>
       <ion-button shape="round" *ngIf="dato">Editar domicilio</ion-button>
       <ion-button shape="round" *ngIf="!dato" (click)="ChangeDomicilie()">Domicilio</ion-button>
       <ion-button shape="round" *ngIf="dato" (click)="ChangePerfil()">Mi perfil</ion-button>
