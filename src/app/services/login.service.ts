@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { environment } from 'src/environments/environment';
+const url = environment.url;
 @Injectable({
   providedIn: 'root',
 })
@@ -16,10 +17,14 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   login(user: any) {
-    return this.http.post(`${this.url}verificar`, user);
+    return this.http.post(`${url}verificar`, user);
   }
   edit(uuid: string ){
-    return this.http.get(`${this.url}patients/${uuid}?token=${this.leer_token()}`);
+    return this.http.get(`${url}patients/${uuid}?token=${this.leer_token()}`);
+
+  }
+  Update( users: any){
+    return this.http.put(`${url}patients/${users.uuid}?token=${this.leer_token()}`, users);
 
   }
   valid_token() {
@@ -27,7 +32,7 @@ export class LoginService {
       Authorization: `Bearer ${this.leer_token()}`,
     });
 
-    return this.http.get(`${this.url}token`, {
+    return this.http.get(`${url}token`, {
       headers: cabecera,
     });
   }
