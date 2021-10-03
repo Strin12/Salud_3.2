@@ -1,5 +1,5 @@
 export class User{
-    id_: number;
+    id: number;
     uuid: string;
     name: string;
     ap_patern: string;

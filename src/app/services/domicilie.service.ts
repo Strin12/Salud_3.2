@@ -11,12 +11,12 @@ export class DomicilieService {
 
   
   constructor(private http: HttpClient,private token: LoginService) { }
-  list(){
-    return this.http.get(`${url}domicile?token=${this.token.leer_token()}`);
+  list(id_persons:any){
+    return this.http.get(`${url}dom/${id_persons}?token=${this.token.leer_token()}`);
   }
 
-  insert(inquiries: any ) {
-    return this.http.post(`${url}domicile?token=${this.token.leer_token()}`, inquiries);
+  insert(domicile: any ) {
+    return this.http.post(`${url}domicile?token=${this.token.leer_token()}`, domicile);
   }
   edit(uuid: string ){
     return this.http.get(`${url}domicile/${uuid}?token=${this.token.leer_token()}`);

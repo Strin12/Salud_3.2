@@ -10,7 +10,7 @@
     <ion-col style="align-items: center">
       <ion-button shape="round" *ngIf="!dato" (click)="EditPerfil(user.uuid)">Editar perfil</ion-button>
       <ion-button shape="round" *ngIf="dato">Editar domicilio</ion-button>
-      <ion-button shape="round" *ngIf="!dato" (click)="ChangeDomicilie()">Domicilio</ion-button>
+      <ion-button shape="round" *ngIf="!dato" (click)="ChangeDomicilie(user.id)">Domicilio</ion-button>
       <ion-button shape="round" *ngIf="dato" (click)="ChangePerfil()">Mi perfil</ion-button>
     </ion-col>
     </ion-row>
@@ -19,7 +19,7 @@
 <br>
 <app-datos-perfil *ngIf="!dato" [user]="user"></app-datos-perfil>
 
-<app-datos-domicilio *ngIf="dato"></app-datos-domicilio>
+<app-datos-domicilio *ngIf="dato" [id]="user.id"></app-datos-domicilio>
 
 
 

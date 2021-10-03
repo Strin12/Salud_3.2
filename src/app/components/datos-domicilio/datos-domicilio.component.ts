@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Domicilio } from 'src/app/pages/interfaces/domicilio';
+import { DomicilieService } from 'src/app/services/domicilie.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-datos-domicilio',
@@ -7,9 +10,22 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DatosDomicilioComponent implements OnInit {
   @Input() dato: boolean = false;
+domicile: Domicilio = new Domicilio();
+@Input() id:any;
+  constructor(private domicileServices:DomicilieService) { }
 
-  constructor() { }
+  ngOnInit() {
+    this.domicileServices
+    .list(this.id)
+    .pipe(
+      map((res: any) => {
+        this.domicile = res;
+        console.log(this.domicile);
+        return this.domicile;
+      })
+    )
+    .subscribe();
+  }
 
-  ngOnInit() {}
 
 }

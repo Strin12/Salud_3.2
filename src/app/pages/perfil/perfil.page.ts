@@ -31,7 +31,7 @@ user: User = new User();
     .subscribe();
   }
 
-  ChangeDomicilie(){
+  ChangeDomicilie(id:any){
     this.dato = true;
   }
   ChangePerfil(){
