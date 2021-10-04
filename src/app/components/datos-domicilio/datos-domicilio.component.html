@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content *ngIf="datos">
 <div id="card">
   <ion-grid id="form">
       <ion-row class="align-center">
@@ -37,4 +37,13 @@
       </ion-row>
   </ion-grid>
 </div>
+</ion-content>
+
+<ion-content *ngIf="!datos">
+    <ion-card class="alerta">
+        <ion-card-content>
+            <ion-icon name="alert-outline"></ion-icon>    
+        <ion-card-title>No hay datos de tu domicilio actual</ion-card-title>
+        </ion-card-content>
+      </ion-card>
 </ion-content>

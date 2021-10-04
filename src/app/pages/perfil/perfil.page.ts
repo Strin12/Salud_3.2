@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { ModalPerfilComponent } from 'src/app/components/modal-perfil/modal-perfil.component';
 import { LoginService } from 'src/app/services/login.service';
 import { User } from '../interfaces/user';
@@ -15,7 +15,8 @@ export class PerfilPage implements OnInit {
 dato: boolean = false;
 uuid:any;
 user: User = new User();
-  constructor(private modalCtrl: ModalController, private loginServices:LoginService) { }
+  constructor(private modalCtrl: ModalController, private loginServices:LoginService,
+    private loadingController: LoadingController) { }
 
   ngOnInit() {
     this.uuid = this.loginServices.leer_uuid();
@@ -33,6 +34,7 @@ user: User = new User();
 
   ChangeDomicilie(id:any){
     this.dato = true;
+    this.presentLoading();
   }
   ChangePerfil(){
     this.dato = false;
@@ -44,5 +46,13 @@ user: User = new User();
 
     modal.present();
 
+  }
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Espere unos momentos...',
+      duration: 1500
+    });
+    await loading.present();
   }
 }

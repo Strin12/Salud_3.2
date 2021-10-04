@@ -12,6 +12,7 @@ export class DatosDomicilioComponent implements OnInit {
   @Input() dato: boolean = false;
 domicile: Domicilio = new Domicilio();
 @Input() id:any;
+datos:boolean = false;
   constructor(private domicileServices:DomicilieService) { }
 
   ngOnInit() {
@@ -21,7 +22,10 @@ domicile: Domicilio = new Domicilio();
       map((res: any) => {
         this.domicile = res;
         console.log(this.domicile);
+        this.datos = true;
         return this.domicile;
+      },error =>{
+        this.datos = false;
       })
     )
     .subscribe();
