@@ -12,7 +12,7 @@ import { OxigenacionComponent } from './oxigenacion/oxigenacion.component';
 import { DatosHistorialComponent } from './datos-historial/datos-historial.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
-
+import { ModalDomicilioComponent } from './modal-domicilio/modal-domicilio.component';
 
 
 @NgModule({
@@ -25,6 +25,7 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     PresionComponent,
     OxigenacionComponent,
     DatosHistorialComponent,
+    ModalDomicilioComponent
   
   ],
   exports:[
@@ -36,7 +37,7 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     PresionComponent,
     OxigenacionComponent,
     DatosHistorialComponent,
-    
+    ModalDomicilioComponent
   ],
   imports: [
     CommonModule,

@@ -1,26 +1,39 @@
 <app-header titulo="Mi perfil"></app-header>
 
-
 <ion-content [fullscreen]="true">
   <div id="header">
-<br>
+    <br />
     <img src="{{ 'http://127.0.0.1:8000/pacientes/' + user.photo }}" />
     <ion-grid>
       <ion-row>
-    <ion-col style="align-items: center">
-      <ion-button shape="round" *ngIf="!dato" (click)="EditPerfil(user.uuid)">Editar perfil</ion-button>
-      <ion-button shape="round" *ngIf="dato">Editar domicilio</ion-button>
-      <ion-button shape="round" *ngIf="!dato" (click)="ChangeDomicilie(user.id)">Domicilio</ion-button>
-      <ion-button shape="round" *ngIf="dato" (click)="ChangePerfil()">Mi perfil</ion-button>
-    </ion-col>
-    </ion-row>
+        <ion-col style="align-items: center">
+          <ion-button
+            shape="round"
+            *ngIf="!dato"
+            (click)="EditPerfil(user.uuid)"
+            >Editar perfil</ion-button
+          >
+          <ion-button
+            shape="round"
+            *ngIf="dato"
+            (click)="EditarDomicilio(user._id)"
+            >Editar domicilio</ion-button
+          >
+          <ion-button
+            shape="round"
+            *ngIf="!dato"
+            (click)="ChangeDomicilie(user._id)"
+            >Domicilio</ion-button
+          >
+          <ion-button shape="round" *ngIf="dato" (click)="ChangePerfil()"
+            >Mi perfil</ion-button
+          >
+        </ion-col>
+      </ion-row>
     </ion-grid>
   </div>
-<br>
-<app-datos-perfil *ngIf="!dato" [user]="user"></app-datos-perfil>
+  <br />
+  <app-datos-perfil *ngIf="!dato" [user]="user"></app-datos-perfil>
 
-<app-datos-domicilio *ngIf="dato" [id]="user.id"></app-datos-domicilio>
-
-
-
+  <app-datos-domicilio *ngIf="dato" [persons_id]="user._id"></app-datos-domicilio>
 </ion-content>

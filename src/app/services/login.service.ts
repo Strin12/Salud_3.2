@@ -15,6 +15,7 @@ export class LoginService {
   daots: false;
   doctors_id: string;
   uuid:any;
+  _id:any;
   constructor(private http: HttpClient) {}
 
   login(user: any) {
@@ -74,6 +75,19 @@ export class LoginService {
       this.uuid = null;
     }
     return this.uuid;
+  }
+  guardar_id(_id: any) {
+    this._id = _id;
+    localStorage.setItem('_id', _id);
+  }
+
+  leer_id() {
+    if (localStorage.getItem('_id')) {
+      this._id = localStorage.getItem('_id');
+    } else {
+      this._id = null;
+    }
+    return this._id;
   }
   guardar_email(email: string) {
     this.email = email;

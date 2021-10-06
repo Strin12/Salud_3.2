@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
-import { SocialAuthService } from 'angularx-social-login';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { ToastController } from "@ionic/angular";
+import { SocialAuthService } from "angularx-social-login";
 import {
   FacebookLoginProvider,
   GoogleLoginProvider,
-} from 'angularx-social-login';
-import { LoginService } from 'src/app/services/login.service';
+} from "angularx-social-login";
+import { LoginService } from "src/app/services/login.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: "app-login",
+  templateUrl: "./login.page.html",
+  styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
   user: any;
@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   ) {}
 
   googleLoginOptions = {
-    scope: 'email',
+    scope: "email",
   };
 
   ngOnInit() {}
@@ -34,18 +34,20 @@ export class LoginPage implements OnInit {
       .signIn(GoogleLoginProvider.PROVIDER_ID, this.googleLoginOptions)
       .then((res) => {
         this.user = res;
-        console.log('google', this.user);
+        console.log("google", this.user);
         this.loginService.login(this.user).subscribe(
           (respuesta) => {
-            console.log('mi_api', respuesta);
-            this.loginService.guardar_token(respuesta['token']);
-            this.loginService.guardar_nombre(respuesta['users']['name']);
-            this.loginService.guardar_email(respuesta['users']['email']);
-            this.loginService.guardar_rol(respuesta['users']['roles']['name']);
-            this.loginService.guardar_uuid(respuesta['users']['persons']['uuid']);
+            this.loginService.guardar_token(respuesta["token"]);
+            this.loginService.guardar_nombre(respuesta["users"]["name"]);
+            this.loginService.guardar_email(respuesta["users"]["email"]);
+            this.loginService.guardar_rol(respuesta["users"]["roles"]["name"]);
+            this.loginService.guardar_uuid(
+              respuesta["users"]["persons"]["uuid"]
+            );
+            this.loginService.guardar_id(respuesta["users"]["persons"]["_id"]);
 
             this.presentToast();
-            this.route.navigateByUrl('tabs/inicio');
+            this.route.navigateByUrl("tabs/inicio");
           },
           (error) => {
             this.ErrorToast();
@@ -57,17 +59,17 @@ export class LoginPage implements OnInit {
 
   async presentToast() {
     const toast = await this.toasController.create({
-      message: 'Bienvenido',
+      message: "Bienvenido",
       duration: 800,
-      position: 'middle',
+      position: "middle",
     });
     toast.present();
   }
   async ErrorToast() {
     const toast = await this.toasController.create({
-      message: 'El usuario no existe o no tiene permisos',
+      message: "El usuario no existe o no tiene permisos",
       duration: 800,
-      position: 'middle',
+      position: "middle",
     });
     toast.present();
   }

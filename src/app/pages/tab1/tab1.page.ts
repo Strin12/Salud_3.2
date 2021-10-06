@@ -16,22 +16,18 @@ export class Tab1Page {
     this.recipe.list().subscribe(
       resp => {
         this.recipes = resp;
-        console.log(this.recipes);
       }
     );
     this.recipe.getinquieries().subscribe(
       resp => {
         this.inquiries = resp;
-        console.log(this.inquiries);
       }
     );
   }
   returnRecipe(varia){
-   console.log(varia);
     this.recipe.returnRecipe(varia);
   }
   DownloadRecipe(varia){
-    console.log(varia);
      this.recipe.DowenloadRecipe(varia);
    }
 }

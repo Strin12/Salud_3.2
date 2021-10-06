@@ -1,0 +1,73 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="regresar()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Editar<br />Domicilio</h1>
+
+  <form id="form" (ngSubmit)="guardar(form)" #form="ngForm">
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        placeholder="Tipo de domicilio"
+        [(ngModel)]="domicilio.type"
+        name="type"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        placeholder="Calle"
+        [(ngModel)]="domicilio.street"
+        name="street"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        placeholder="Numero exterior"
+        [(ngModel)]="domicilio.number_ext"
+        name="number_ext"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        placeholder="Numero interior"
+        [(ngModel)]="domicilio.number_int"
+        name="number_int"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        placeholder="Estado"
+        [(ngModel)]="domicilio.state"
+        name="state"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        placeholder="Municipio"
+        [(ngModel)]="domicilio.municipality"
+        name="municipality"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        placeholder="Colonia"
+        [(ngModel)]="domicilio.colony"
+        name="colony"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        placeholder="Codigo postal"
+        [(ngModel)]="domicilio.postalCode"
+        name="postalCode"
+      ></ion-input>
+    </ion-item>
+    <ion-button expand="block" shape="round" type="submit">Guardar</ion-button>
+  </form>
+</ion-content>
