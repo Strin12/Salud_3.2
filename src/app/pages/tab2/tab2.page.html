@@ -1,29 +1,26 @@
 <app-header titulo="Presión Arterial"></app-header>
 
 <ion-content class="ion-padding">
-
-  <ion-card color ="primary">
+  <ion-card color="primary">
+    <form (ngSubmit)="guardar(form)" #form="ngForm">
     <ion-card-header>
-      <div class="fecha">
-        <ion-item>
-          <ion-label  position="floating">DD/MM/AA</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2012-12-09">
-          </ion-datetime>
-        </ion-item>
-      </div>
       <ion-card-title></ion-card-title>
     </ion-card-header>
-  
+
     <ion-item color="primary" lines="none">
       <ion-label>Presión-Mañana</ion-label>
     </ion-item>
     <ion-card>
       <ion-item>
-      <ion-label position="floating"></ion-label>
-      <ion-input type="text"
-    placeholder="Ingrese la presión matutina"
-     required></ion-input>
-    </ion-item> 
+        <ion-label position="floating"></ion-label>
+        <ion-input
+          type="text"
+          placeholder="Ingrese la presión matutina"
+          name="morning"
+          [(ngModel)]="bloodpres.morning"
+          required
+        ></ion-input>
+      </ion-item>
     </ion-card>
 
     <ion-item color="primary" lines="none">
@@ -31,24 +28,33 @@
     </ion-item>
     <ion-card>
       <ion-item>
-      <ion-label position="floating"></ion-label>
-      <ion-input type="text"
-    placeholder="Ingrese la presión nocturna"
-     required></ion-input>
-    </ion-item> 
+        <ion-label position="floating"></ion-label>
+        <ion-input
+          type="text"
+          placeholder="Ingrese la presión nocturna"
+          name="night"
+          [(ngModel)]="bloodpres.night"
+          required
+        ></ion-input>
+      </ion-item>
     </ion-card>
 
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
 
-   <!--routerLink="/registro2" redireccionar a otra pagina-->
-
-   <div class="boton">
-    <ion-button color="secondary" shape="round" fill="outline" expand="full" type="submit">
-      <ion-icon name="save-sharp"></ion-icon>
-    </ion-button>
-   </div>
+    <div class="boton">
+      <ion-button
+        color="secondary"
+        shape="round"
+        fill="outline"
+        expand="full"
+        type="submit"
+      >
+        <ion-icon name="save-sharp"></ion-icon>
+      </ion-button>
+    </div>
+  </form>
   </ion-card>
   <app-presion></app-presion>
 </ion-content>

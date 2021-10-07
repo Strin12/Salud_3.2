@@ -2,58 +2,20 @@
   <ion-card color="primary"> 
     <!-- Default Searchbar -->
   <ion-searchbar ></ion-searchbar>
-  <ion-card >
+  <ion-card *ngFor="let bracelet of bracelet">
    <ion-card-content>
      <ion-item >
       <!-- <ion-icon name="wifi" slot="start"></ion-icon>-->
-       <ion-label>Oxigenación sanguinea: 80%</ion-label>
-       <ion-icon name="create-sharp"></ion-icon>
-       <ion-icon name="trash-sharp"></ion-icon>
+       <ion-label>Oxigenación sanguinea: {{bracelet.blood_oxygenation}}</ion-label>
      </ion-item>
   
     <ion-item>
       <!--<ion-icon name="wifi" slot="start"></ion-icon>-->
-       <ion-label>Ritmo cardiaco: 60 L/min</ion-label>
-       <ion-icon name="create-sharp"></ion-icon>
-       <ion-icon name="trash-sharp"></ion-icon>
+       <ion-label>Ritmo cardiaco: {{bracelet.heart_rate}}</ion-label>
      </ion-item>
    </ion-card-content>
   </ion-card>
   
-  <ion-card>
-   <ion-card-content>
-     <ion-item >
-      <!-- <ion-icon name="wifi" slot="start"></ion-icon>-->
-       <ion-label>Oxigenación sanguinea: 80%</ion-label>
-       <ion-icon name="create-sharp"></ion-icon>
-       <ion-icon name="trash-sharp"></ion-icon>
-     </ion-item>
-  
-    <ion-item>
-      <!--<ion-icon name="wifi" slot="start"></ion-icon>-->
-       <ion-label>Ritmo cardiaco: 60 L/min</ion-label>
-       <ion-icon name="create-sharp"></ion-icon>
-       <ion-icon name="trash-sharp"></ion-icon>
-     </ion-item>
-   </ion-card-content>
-  </ion-card>
-  
-  <ion-card>
-   <ion-card-content>
-     <ion-item >
-      <!-- <ion-icon name="wifi" slot="start"></ion-icon>-->
-       <ion-label>Oxigenación sanguinea: 80%</ion-label>
-       <ion-icon name="create-sharp"></ion-icon>
-       <ion-icon name="trash-sharp"></ion-icon>
-     </ion-item>
-  
-    <ion-item>
-      <!--<ion-icon name="wifi" slot="start"></ion-icon>-->
-       <ion-label>Ritmo cardiaco: 60 L/min</ion-label>
-       <ion-icon name="create-sharp"></ion-icon>
-       <ion-icon name="trash-sharp"></ion-icon>
-     </ion-item>
-   </ion-card-content>
-  </ion-card>
+
   </ion-card>
   </ion-content>
