@@ -115,4 +115,13 @@ export class LoginService {
     }
     return this.email;
   }
+  getFitnes(token: any) {
+    let cabecera = new HttpHeaders({'Authorization':`Bearer ${token}`});
+   cabecera.set('Authorization',`Bearer ${token}` );
+    
+    console.log(cabecera);
+    return this.http.get(`https://www.googleapis.com/fitness/v1/users/me/dataSources`, {
+      headers: cabecera
+    });
+  } 
 }

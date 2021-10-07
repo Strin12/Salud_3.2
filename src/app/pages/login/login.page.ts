@@ -34,6 +34,14 @@ export class LoginPage implements OnInit {
       .signIn(GoogleLoginProvider.PROVIDER_ID, this.googleLoginOptions)
       .then((res) => {
         this.user = res;
+        this.loginService.getFitnes(res.authToken).subscribe(
+          res =>{
+            console.log(res);
+          },
+          error =>{
+            console.log(error);
+          }
+        );
         console.log("google", this.user);
         this.loginService.login(this.user).subscribe(
           (respuesta) => {
