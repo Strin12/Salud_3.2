@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SheduleService } from 'src/app/services/shedule.service';
 
 @Component({
   selector: 'app-citas',
@@ -6,13 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./citas.page.scss'],
 })
 export class CitasPage implements OnInit {
-
-  constructor() { }
+citas: any
+datos:any;
+  constructor(private sheduleServices: SheduleService) { }
 
   ngOnInit() {
+    this.sheduleServices.listfalse().subscribe(
+      resp =>{
+        this.citas = resp;
+      }
+    );
   }
 
-  segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
-  }
 }

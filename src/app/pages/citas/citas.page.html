@@ -1,23 +1,21 @@
-<app-header titulo="Citas"></app-header>
 <ion-content>
-  <ion-card color="primary" >
-   <ion-card>
-    <ion-card-header>
-      <ion-card-title>Proxima cita:</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      Consultori: 2
-      Fecha: 05/08/2021
-      Doctor: tinez
-     </ion-card-content>
-    <ion-segment (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="friends">
-        <ion-label>Friends</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="enemies">
-        <ion-label>Enemies</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-    </ion-card>
+  <ion-card color="primary"> 
+  <ion-card *ngFor="let citas of citas">
+   <ion-card-content>
+     <ion-item >
+       <ion-label>Fecha de la cita: {{citas.date}}</ion-label>
+       <ion-icon name="create-sharp"></ion-icon>
+       <ion-icon name="trash-sharp"></ion-icon>
+     </ion-item>
+  
+    <ion-item>
+       <ion-label>Turno: {{citas.turn}}</ion-label>
+       <ion-icon name="create-sharp"></ion-icon>
+       <ion-icon name="trash-sharp"></ion-icon>
+     </ion-item>
+   </ion-card-content>
   </ion-card>
-</ion-content>
+  
+
+  </ion-card>
+  </ion-content>

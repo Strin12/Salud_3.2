@@ -13,6 +13,9 @@ export class SheduleService {
   list(){
     return this.http.get(`${url}shedule?token=${this.token.leer_token()}`);
   }
+  listfalse(){
+    return this.http.get(`${url}list/pat?token=${this.token.leer_token()}`);
+  }
 
   insert(inquiries: any ) {
     return this.http.post(`${url}shedule?token=${this.token.leer_token()}`, inquiries);
