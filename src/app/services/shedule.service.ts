@@ -34,4 +34,8 @@ export class SheduleService {
     return this.http.put(`${url}recipe/${shedule.uuid}?token=${this.token.leer_token()}`, shedule);
 
   }
+  cancel(uuid:string){
+    return this.http.delete(`${url}shedule/cancel/${uuid}?token=${this.token.leer_token()}`);
+
+  }
 }
