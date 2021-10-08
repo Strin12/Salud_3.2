@@ -7,7 +7,7 @@ const url = environment.url;
   providedIn: 'root',
 })
 export class LoginService {
-   url = 'http://127.0.0.1:8000/api/';
+   url = 'http://192.168.12.9:80/api/';
   name: string = null;
   token: string = null;
   email: string = null;
