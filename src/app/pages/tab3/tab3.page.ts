@@ -17,8 +17,14 @@ blood(){
   var token = this.loginService.leer_tokengoogle();
     this.loginService.getFitnes(token).subscribe(
       resp =>{
-          this.datos = resp;
-          console.log(this.datos);
+        console.log(this.datos);
+      var data = resp['dataSource'];
+      var dsname = [];
+      for (let i = 0; i < data.length; i++) { 
+        dsname.push(data[i].dataStreamId);
+        console.log('prueba',dsname['point']);
+      }
+      console.log('data', dsname);
       }
     );
 }

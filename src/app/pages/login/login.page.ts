@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   ) {}
 
   googleLoginOptions = {
-    scope: "email https://www.googleapis.com/auth/fitness.blood_pressure.read https://www.googleapis.com/auth/fitness.heart_rate.read",
+    scope: "email https://www.googleapis.com/auth/fitness.oxygen_saturation.read https://www.googleapis.com/auth/fitness.heart_rate.read",
   };
 
   ngOnInit() {}
