@@ -22,9 +22,8 @@ blood(){
       var dsname = [];
       for (let i = 0; i < data.length; i++) { 
         dsname.push(data[i].dataStreamId);
-        console.log('prueba',dsname['point']);
       }
-      console.log('data', dsname);
+
       }
     );
 }
