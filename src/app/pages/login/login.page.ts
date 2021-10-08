@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   ) {}
 
   googleLoginOptions = {
-    scope: "email",
+    scope: "email https://www.googleapis.com/auth/fitness.blood_pressure.read https://www.googleapis.com/auth/fitness.heart_rate.read",
   };
 
   ngOnInit() {}
@@ -34,9 +34,10 @@ export class LoginPage implements OnInit {
       .signIn(GoogleLoginProvider.PROVIDER_ID, this.googleLoginOptions)
       .then((res) => {
         this.user = res;
+        this.loginService.guardar_tokengoogle(res.authToken);
         this.loginService.getFitnes(res.authToken).subscribe(
-          res =>{
-            console.log(res);
+          resp =>{
+            console.log(resp);
           },
           error =>{
             console.log(error);

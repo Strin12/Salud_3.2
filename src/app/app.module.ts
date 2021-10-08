@@ -40,7 +40,7 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
         {
           id: GoogleLoginProvider.PROVIDER_ID,
           provider: new GoogleLoginProvider(
-            '364120555259-f8rmna5kndjl8gtnu4tlmu0o38n8frpl.apps.googleusercontent.com'
+            '142070303481-ia0i3r7b5mjad561fov4s2do869mkq53.apps.googleusercontent.com'
           )
         },
       ]

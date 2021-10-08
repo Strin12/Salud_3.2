@@ -16,6 +16,8 @@ export class LoginService {
   doctors_id: string;
   uuid:any;
   _id:any;
+  fitnes = 'https://www.googleapis.com/fitness/v1/users/me/dataSources'
+  authToken:any;
   constructor(private http: HttpClient) {}
 
   login(user: any) {
@@ -115,13 +117,26 @@ export class LoginService {
     }
     return this.email;
   }
+  guardar_tokengoogle(authToken: string) {
+    this.authToken = authToken;
+    localStorage.setItem('google', authToken);
+  }
+  leer_tokengoogle() {
+    if (localStorage.getItem('google')) {
+      this.authToken = localStorage.getItem('google');
+    } else {
+      this.authToken = null;
+    }
+    return this.authToken;
+  }
   getFitnes(token: any) {
-    let cabecera = new HttpHeaders({'Authorization':`Bearer ${token}`});
-   cabecera.set('Authorization',`Bearer ${token}` );
+    let cabecera = new HttpHeaders({'Authorization': `Bearer ${token}` });
+
+  //  cabecera.set('Authorization',`Bearer ${token}` );
     
     console.log(cabecera);
-    return this.http.get(`https://www.googleapis.com/fitness/v1/users/me/dataSources`, {
-      headers: cabecera
+    return this.http.get(`${this.fitnes}`, {
+      headers: cabecera,
     });
   } 
 }
